@@ -1,0 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300;1,400;1,700;1,900&display=swap');
+
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+
+/* elemen yang tidak memiliki induk */
+
+:root {
+    --primarytextcolor:#232e35;
+    --secondarytextcolor: #656d72;
+
+    --borderColor: #f1f1f1;
+    --lineColor: #d9d9d9;
+
+    --primaryBackgroundColor: #fff;
+    --secodaryBackgroundColor: #fbfbfb;
+    --thirdBackgroundColor: #f5f3fe;
+
+    --primaryiconcolor: #7e74f1;
+    --primaryiconcolorhover: #5d51e8;
+
+    --sectionPadding: 6rem 0;
+
+    --itemBorderRadius: 0.7rem;
+
+     /* box shadow */
+
+     --shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
+     --shadow-2: 0 0 0 0.05rem hsla(214, 88%, 27%, 0.08), 0 0 1.25rem hsla(216, 14%, 14%, 0.06);
+     --shadow-3: 0 0 1.25rem hsla(216, 14%, 14%, 0.04);
+}
+
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after{
+  /* Margin digunakan untuk membuat ruang di sekitar elemen, di luar batas yang ditentukan. */
+  margin: 0;
+  /* Padding berfungsi untuk memberikan ruang di dalam elemen, sehingga konten tidak menempel langsung pada batas atau border elemen */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Roboto', sans-serif ;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong{
+    --dark-cornflower-blue_a7: hsla(214, 68%, 7%, 0.07);
+}
+
+p{
+    font-size: 1rem;
+    line-height: 1.9rem;
+}
+
+p, span, label, input, textarea, li{
+    color: var(--primarytextcolor);
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* kecilin gedein jadi beda */
+@media screen and (max-width : 1200px) {
+    .main-container{ 
+        width: 90%;
+    }
+}
+
+
+
+/*-----------------------------------*\
+  CSS yang selalu di pakai risebel
+\*-----------------------------------*/
+
+.pre-title {
+    /* bikin gede semua hurufnya */
+    text-transform: uppercase;
+    /* bikin jaraj antara huruf nya */
+    letter-spacing: 0.5rem;
+    --dark-cornflower-blue_a7: hsla(214, 68%, 7%, 0.07);
+    position: relative;
+    padding-left: 50px;
+    width: fit-content;
+    font-weight: 450;
+    font-size: 1rem;
+}
+
+.pre-title::before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 50%;
+}
+
+
+.section-title {
+    margin: 1rem 0 4rem;
+    font-size: 2rem;
+
+}
+
+/* kanan kiri */
+.grid-1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax( 300px, 1fr));
+    gap: 1rem;
+
+    /* display: flex;
+    justify-content: space-between;
+    padding: 2rem 0; */
+}
+
+.btn {
+    background-color: #fff;
+    border: 2px solid #000;
+       /* ARTINYA */
+    /* border-width: 2px;
+    border-style: solid;
+    border-color: #000; */
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: 1.5s;
+    border-radius: 300px;
+}
+
+/* buat berubah kalo di pencet */
+.btn:hover{
+    background-color: #574ae7;
+    color: black;
+}
+
+
+
+/*-----------------------------------*\
+  #logo & navigation menu
+\*-----------------------------------*/
+
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+
+
+
+    /* BIKIN RUSAK TAPI */
+
+    /* satu paket sama KEYFRAMES */
+    /* animation: slideIn 0.5s ease forwards; */
+}
+
+
+/* bikin kalo di ulang ada animasinya */
+/* @keyframes slideIn {
+    0%{transform: translateY(-100%);}
+    100%{transform: traslateY(0);}
+  
+  } */
+
+.nav ul{
+    list-style: none;
+    /* bikin menyamping */
+    display: flex;
+    /* bikin jarak antar tulisan */
+    gap: 2rem;
+}
+
+.nav .logo{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.nav .logo a{
+    color: #574ae7;
+}
+
+nav ul li{
+    display: flex;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+nav ul li a{
+    color: black;
+    transition: 0.2s ease-in-out;
+}
+
+nav ul li a:hover{
+    color: #574ae7;
+}
+
+/* burger */
+
+.burger div{
+    width: 25px;
+    height: 2.5px;
+    background-color: black;
+    /* bikin ada jarak anatara burger/lapisan 1 dan 2 */
+    margin: 7px;
+}
+
+.burger{
+    /* bikin ilang */
+    display: none;
+    z-index: 99;
+    position: fixed;
+    top: 33px;
+    right: 35px;
+}
+
+
+
+
+/*-----------------------------------*\
+  HERO SECTION
+\*-----------------------------------*/
+
+
+
+
+/* buat ke bawah */
+#hero {
+    padding: var(--sectionPadding);
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.hero-name{
+    font-size: 4rem;
+    font-weight: 750;
+    /* 2 nominal atas bawah kanan kiri */
+    /* pertamaa di atas
+    kedua kanan kiri
+    ketiga bawah */
+    /* mengambil searah jarum jam kalo 4 */
+    margin: 0.5rem  0rem 1rem;
+    cursor: pointer;
+}
+
+.hero-name span{
+    color: var(--primaryiconcolor);
+}
+
+.hero-name span:is(:hover, :focus-visible){
+    color: var(--primaryiconcolorhover);
+    transition: 5s;
+}
+
+.hero-right img {
+    width: 85%;
+    border-radius: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-color: darkgray;
+}
+
+/*-----------------------------------*\
+  SERVICE SECTION
+\*-----------------------------------*/
+
+#services {
+    padding: var(--sectionPadding) ;
+    background-color: #fbfbfb;
+}
+
+.services-section .pre-title {
+    margin:0 auto;
+}
+
+.services-title {
+    text-align: center;
+}
+
+.service-card {
+    background-color: white;
+    padding: 100px 50px;
+    text-align: center;
+    border-radius: 0.7rem;
+    box-shadow: var(--shadow-2);
+}
+
+.service-icon {
+    background-color: #fbfbfb;
+    /* bikin se iconnya */
+    width: fit-content;
+    /* bikin ke tengah */
+    margin: 0 auto;
+    padding: 1rem 1.3rem;
+    border-radius: var(--itemBorderRadius);
+}
+
+/* pewarnaan svg pake fill */
+.service-icon svg {
+    fill: var(--primaryiconcolor);
+}
+
+.service-title {
+    margin: 2rem;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+/*-----------------------------------*\
+  PORTOFOLIO
+\*-----------------------------------*/
+
+.grid-2{
+    display: flex;
+    gap: 3rem;
+}
+
+
+#portofolios {
+    padding: var(--sectionPadding);
+}
+
+.portfolio-card {
+    border-radius: var(--itemBorderRadius);
+    background-color: var(--primaryBackgroundColor);
+    /* buat img nya sama dengan bgrn nya */
+    overflow: hidden;
+    border: 1px solid var(--borderColor);
+}
+
+.portfolio-cover {
+    height: 250px;
+}
+
+.portfolio-cover img {
+    width: 100%;
+    height: 100%;
+    /* buat gambarnya bagus .nggak gepeng */
+    object-fit: cover;
+}
+
+.portfolio-cover {
+    background-color: #5d51e8;
+}
+
+.portfolio-info {
+    /* buat tulisannya ketengah */
+    padding: 2rem 1.5rem;
+    background-color: #fbfbfb;
+}
+
+.portfolio-title {
+    /* bikin logonya di samping tulisan */
+    display: flex;
+    /* bikin logonya berjarak */
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.portfolio-card .h3 {
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+/* ganti warna ketika di pencet */
+.portfolio-title a svg:hover {
+    fill: var(--primaryiconcolor);
+}
+
+.portfolio-title a svg {
+    transition: 0.5s ease-in-out;
+}
+
+.portfolio-tags {
+    /* biar sampingan tulisannya */
+    display: flex;
+    /* bikin jarak anatar tulisan */
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+/* bikin pas di pencet ke atas */
+.portfolio-tags .btn:is(:hover ,:focus-visible) {transform:translateY(-4px);}
+
+/* .portfolio-tags .btn { background-color: rgb(153, 19, 153);} */
+
+.portfolio-tags div {
+    font-size: 1rem;
+    border: 1px solid var(--borderColor);
+    padding: 0.4rem 1rem;
+    /* cursor: pointer; */
+    
+}
+
+
+
+
+
+/*-----------------------------------*\
+  SKILLS & EDUCATION
+\*-----------------------------------*/
+
+#skills {
+    padding: var(--sectionPadding);
+    background-color: var(--secodaryBackgroundColor);
+}
+
+.skills-grid {
+    display: grid;
+    /* buat mindah ke samping kanan */
+    grid-template-columns: repeat(auto-fit , minmax( 300px, 1fr));
+    gap: 3rem;
+}
+
+.education {
+    /* bikin ada banyak blok nya */
+    display: flex;
+    gap: 2rem;
+}
+
+/* line kotak nggak terlihat di paling kiri */
+.education .line {
+    padding: 0 0.7rem;
+}
+
+.education .line div {
+    background-color: var(--borderColor);
+    width: 2px;
+    height: 100%;
+    position: relative;
+}
+
+.education .education-info p {
+    padding: 0.8rem 0 1.4rem ;
+}
+
+.education .education-years {
+    margin-bottom: 4rem;
+}
+
+/* before :sebelum tulisan mau kasih apa */
+.education .line div::before {
+    content: "";
+    background-color: var(--borderColor);
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    left: -6px;
+}
+
+.skills-list {
+
+    /* bikin kanan kiri */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1.5rem;
+
+
+    /* display: flex
+    gap: 10rem; */
+
+    /* bikin ada jarak antara tulisan atas dan bawah */
+    /* padding: 30px; */
+    /* margin: 40px; */
+
+}
+
+.skills-list ul {
+    /* yang pake baris baris bisa "kasih jarak otomatis"  */
+    line-height: 4rem;
+    padding: 0 1rem;
+}
+
+.skills-list ul li {
+    /* bikin ada lambang di samping tulisannya */
+    list-style: circle;
+}
+
+
+/*-----------------------------------*\
+  CONTACT SECTION
+\*-----------------------------------*/
+
+
+#Contact {
+    padding: var(--sectionPadding);
+}
+
+.contact-form div {
+    margin-bottom: 1.4rem;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    /* buat biar gak bisa di rubah */
+    resize: none;
+    box-sizing: border-box;
+    font-family: roboto;
+    background-color: var(--secodaryBackgroundColor);
+    border: solid 1px var(--borderColor);
+    border-radius: 3px;
+}
+
+.contact-form input, .contact-form textarea::placeholder {
+    color: var(--secondarytextcolor);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--secodaryBackgroundColor);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem ;
+    background-color: var(--primaryiconcolor);
+    color: white;
+    border-radius: 4px;
+    transition: 1s;
+}
+
+.submit-btn:hover {
+    background-color: var(--primaryiconcolorhover);
+}
+
+.contact-icon {
+    background-color: #fbfbfb;
+    /* bikin se iconnya */
+    width: fit-content;
+    padding: 1rem 1.3rem;
+    border-radius: 20px;
+    background-color: var(--primaryiconcolorhover);
+}
+
+.contact-icon svg {
+    fill: var(--primaryBackgroundColor);
+}
+
+.contact-item {
+    display: flex;
+    padding: 0 1rem 1.5rem ;
+    gap: .5rem;
+}
+
+.contact-info p {
+    margin-top: .8rem;
+}
+
+/*-----------------------------------*\
+  FOOTER SECTION
+\*-----------------------------------*/
+
+footer {
+    padding: 2rem;
+}
+
+.footer-icon {
+    text-align: center;
+}
+
+.footer-icon a {
+    padding: 0.3rem;
+}
+
+.footer-text {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.footer-icon svg:hover {
+    fill: var(--primaryiconcolor);
+}
+
+.footer-icon svg {
+    transition: 0.5s ease-in-out;
+}
